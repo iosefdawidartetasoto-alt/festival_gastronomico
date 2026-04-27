@@ -5,345 +5,345 @@
    ============================================= */
  
 /* ---------- RESET & VARIABLES ---------- */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } /* Resetea el modelo de caja para todos los elementos y elimina márgenes y rellenos por defecto */
  
 :root {
-  --color-bg:       #0f0e0b;
-  --color-surface:  #1a1814;
-  --color-gold:     #c9a84c;
-  --color-gold-lt:  #e8c97a;
-  --color-text:     #f0ece3;
-  --color-muted:    #9a9080;
-  --color-border:   rgba(201, 168, 76, 0.25);
-  --font-display:   'Georgia', serif;
-  --font-body:      'Trebuchet MS', sans-serif;
-  --radius:         6px;
-  --transition:     0.3s ease;
+  --color-bg:       #0f0e0b; /* Variable global: color de fondo principal (negro cálido) */
+  --color-surface:  #1a1814; /* Variable global: color de fondo para superficies/tarjetas (gris oscuro cálido) */
+  --color-gold:     #c9a84c; /* Variable global: color dorado principal */
+  --color-gold-lt:  #e8c97a; /* Variable global: color dorado claro para hovers y acentos */
+  --color-text:     #f0ece3; /* Variable global: color del texto principal (blanco cálido) */
+  --color-muted:    #9a9080; /* Variable global: color de texto secundario/atenuado (gris cálido) */
+  --color-border:   rgba(201, 168, 76, 0.25); /* Variable global: color de bordes dorado semitransparente */
+  --font-display:   'Georgia', serif; /* Variable global: fuente para títulos y elementos decorativos */
+  --font-body:      'Trebuchet MS', sans-serif; /* Variable global: fuente para el cuerpo del texto */
+  --radius:         6px; /* Variable global: radio de borde para elementos redondeados */
+  --transition:     0.3s ease; /* Variable global: duración y tipo de transición para animaciones */
 }
  
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; } /* Hace que el desplazamiento entre secciones sea suave al hacer clic en enlaces de ancla */
  
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
+  background-color: var(--color-bg); /* Aplica el color de fondo oscuro a toda la página */
+  color: var(--color-text); /* Define el color de texto predeterminado para toda la página */
+  font-family: var(--font-body); /* Aplica la fuente base a todo el body */
+  font-size: 16px; /* Tamaño de fuente base de la página */
+  line-height: 1.6; /* Espaciado entre líneas para mejorar la legibilidad */
 }
  
-img { max-width: 100%; display: block; }
-a  { color: var(--color-gold); text-decoration: none; transition: color var(--transition); }
-a:hover { color: var(--color-gold-lt); }
+img { max-width: 100%; display: block; } /* Hace las imágenes responsivas y elimina el espacio inferior inline por defecto */
+a  { color: var(--color-gold); text-decoration: none; transition: color var(--transition); } /* Estilo base para todos los enlaces: dorado, sin subrayado y con transición de color */
+a:hover { color: var(--color-gold-lt); } /* Cambia el color del enlace a dorado claro al pasar el cursor */
  
 /* ---------- HEADER / CABECERA ---------- */
 .cabecera {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(15, 14, 11, 0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 4%;
-  gap: 1rem;
+  position: sticky; /* Hace que el header permanezca fijo en la parte superior al hacer scroll */
+  top: 0; /* Lo ancla al borde superior de la ventana */
+  z-index: 100; /* Asegura que el header aparezca por encima de otros elementos */
+  background: rgba(15, 14, 11, 0.92); /* Fondo oscuro semitransparente para el header */
+  backdrop-filter: blur(8px); /* Aplica un desenfoque al contenido detrás del header */
+  border-bottom: 1px solid var(--color-border); /* Línea sutil dorada en la parte inferior del header */
+  display: flex; /* Activa Flexbox para distribuir los hijos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente dentro del header */
+  justify-content: space-between; /* Separa el logo y el menú en los extremos */
+  padding: 0.75rem 4%; /* Espaciado interno vertical y horizontal del header */
+  gap: 1rem; /* Espacio mínimo entre los hijos del header */
 }
  
-.cabecera img { height: 52px; width: auto; object-fit: contain; }
+.cabecera img { height: 52px; width: auto; object-fit: contain; } /* Define el tamaño del logo y mantiene su proporción */
  
 .menu ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
+  list-style: none; /* Elimina los puntos de la lista del menú */
+  display: flex; /* Coloca los ítems del menú en fila horizontal */
+  gap: 2rem; /* Espacio entre cada ítem de navegación */
+  flex-wrap: wrap; /* Permite que los ítems salten de línea si no hay espacio */
 }
  
 .menu ul li a {
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-  transition: color var(--transition);
+  font-size: 0.8rem; /* Tamaño pequeño para los enlaces de navegación */
+  letter-spacing: 0.12em; /* Espaciado entre letras para efecto de texto elegante */
+  text-transform: uppercase; /* Convierte el texto del menú a mayúsculas */
+  color: var(--color-muted); /* Color gris atenuado por defecto en los enlaces del menú */
+  transition: color var(--transition); /* Transición suave al cambiar el color en hover */
 }
  
-.menu ul li a:hover { color: var(--color-gold); }
+.menu ul li a:hover { color: var(--color-gold); } /* Cambia el color del enlace a dorado al pasar el cursor */
  
 /* ---------- HERO / INTRODUCCIÓN ---------- */
 #introduccion {
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 5rem 6%;
+  min-height: 90vh; /* La sección ocupa al menos el 90% de la altura de la ventana */
+  display: flex; /* Activa Flexbox para centrar el contenido */
+  flex-direction: column; /* Apila los hijos verticalmente */
+  align-items: center; /* Centra los hijos horizontalmente */
+  justify-content: center; /* Centra los hijos verticalmente */
+  text-align: center; /* Centra el texto */
+  padding: 5rem 6%; /* Espaciado interno amplio para el hero */
   background:
-    linear-gradient(to bottom, rgba(15,14,11,0.7) 0%, rgba(15,14,11,0.9) 100%),
-    url('platillo.JPG') center/cover no-repeat;
-  border-bottom: 1px solid var(--color-border);
+    linear-gradient(to bottom, rgba(15,14,11,0.7) 0%, rgba(15,14,11,0.9) 100%), /* Gradiente oscuro sobre la imagen para mejorar legibilidad */
+    url('platillo.JPG') center/cover no-repeat; /* Imagen de fondo centrada y cubriendo toda la sección */
+  border-bottom: 1px solid var(--color-border); /* Separador dorado sutil en la parte inferior */
 }
  
 #introduccion h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.8rem);
-  font-weight: 400;
-  color: var(--color-gold-lt);
-  line-height: 1.2;
-  margin-bottom: 1.25rem;
-  letter-spacing: 0.02em;
+  font-family: var(--font-display); /* Fuente de display (Georgia) para el título principal */
+  font-size: clamp(2rem, 5vw, 3.8rem); /* Tamaño de fuente fluido: mínimo 2rem, ideal 5vw, máximo 3.8rem */
+  font-weight: 400; /* Peso normal (no negrita) para estética elegante */
+  color: var(--color-gold-lt); /* Color dorado claro para el título principal */
+  line-height: 1.2; /* Interlineado compacto para el título */
+  margin-bottom: 1.25rem; /* Espacio inferior entre el título y el párrafo */
+  letter-spacing: 0.02em; /* Ligero espaciado entre letras */
 }
  
 #introduccion p {
-  max-width: 620px;
-  color: var(--color-muted);
-  font-size: 1.05rem;
-  margin-bottom: 2rem;
+  max-width: 620px; /* Limita el ancho del párrafo para mejorar la legibilidad */
+  color: var(--color-muted); /* Color de texto atenuado para el subtítulo */
+  font-size: 1.05rem; /* Tamaño de fuente ligeramente mayor al base */
+  margin-bottom: 2rem; /* Espacio inferior entre el párrafo y el botón CTA */
 }
  
 .btn-cta {
-  display: inline-block;
-  padding: 0.75rem 2.25rem;
-  background: var(--color-gold);
-  color: #0f0e0b;
-  font-size: 0.8rem;
-  font-weight: bold;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  border-radius: var(--radius);
-  transition: background var(--transition), transform var(--transition);
+  display: inline-block; /* Permite aplicar padding y margin como bloque pero fluye como texto */
+  padding: 0.75rem 2.25rem; /* Espaciado interno del botón */
+  background: var(--color-gold); /* Fondo dorado para el botón de llamada a la acción */
+  color: #0f0e0b; /* Texto oscuro para contrastar con el fondo dorado */
+  font-size: 0.8rem; /* Tamaño de fuente pequeño para el botón */
+  font-weight: bold; /* Texto en negrita */
+  letter-spacing: 0.15em; /* Espaciado amplio entre letras para estilo elegante */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  border-radius: var(--radius); /* Bordes redondeados */
+  transition: background var(--transition), transform var(--transition); /* Transición suave para fondo y movimiento en hover */
 }
-.btn-cta:hover { background: var(--color-gold-lt); color: #0f0e0b; transform: translateY(-2px); }
+.btn-cta:hover { background: var(--color-gold-lt); color: #0f0e0b; transform: translateY(-2px); } /* En hover: fondo dorado claro, mantiene texto oscuro y sube 2px */
  
 /* ---------- SECCIONES GENERALES ---------- */
 main section {
-  padding: 5rem 6%;
-  border-bottom: 1px solid var(--color-border);
+  padding: 5rem 6%; /* Espaciado interno generoso para todas las secciones del main */
+  border-bottom: 1px solid var(--color-border); /* Separador dorado sutil entre secciones */
 }
  
 h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3vw, 2.2rem);
-  font-weight: 400;
-  color: var(--color-gold);
-  margin-bottom: 2rem;
-  letter-spacing: 0.04em;
+  font-family: var(--font-display); /* Fuente de display para todos los títulos h2 */
+  font-size: clamp(1.4rem, 3vw, 2.2rem); /* Tamaño fluido: mínimo 1.4rem, ideal 3vw, máximo 2.2rem */
+  font-weight: 400; /* Peso normal para estética elegante */
+  color: var(--color-gold); /* Color dorado para todos los títulos de sección */
+  margin-bottom: 2rem; /* Espacio inferior entre el título y el contenido */
+  letter-spacing: 0.04em; /* Ligero espaciado entre letras */
 }
  
 /* ---------- HORARIOS - HTML TABLE ---------- */
 #horarios table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.95rem;
+  width: 100%; /* La tabla ocupa todo el ancho disponible */
+  border-collapse: collapse; /* Elimina el espacio doble entre bordes de celdas */
+  font-size: 0.95rem; /* Tamaño de fuente ligeramente reducido para la tabla */
 }
  
 #horarios thead {
-  background: var(--color-gold);
-  color: #0f0e0b;
+  background: var(--color-gold); /* Fondo dorado para el encabezado de la tabla */
+  color: #0f0e0b; /* Texto oscuro en el encabezado para contraste */
 }
  
 #horarios thead th {
-  padding: 0.75rem 1rem;
-  text-align: left;
-  font-weight: bold;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.78rem;
+  padding: 0.75rem 1rem; /* Espaciado interno de las celdas del encabezado */
+  text-align: left; /* Alinea el texto del encabezado a la izquierda */
+  font-weight: bold; /* Texto en negrita en el encabezado */
+  letter-spacing: 0.08em; /* Espaciado entre letras en el encabezado */
+  text-transform: uppercase; /* Texto en mayúsculas en el encabezado */
+  font-size: 0.78rem; /* Tamaño de fuente pequeño para el encabezado */
 }
  
 #horarios tbody tr {
-  border-bottom: 1px solid var(--color-border);
-  transition: background var(--transition);
+  border-bottom: 1px solid var(--color-border); /* Línea separadora dorada entre filas */
+  transition: background var(--transition); /* Transición suave para el fondo en hover */
 }
  
-#horarios tbody tr:hover { background: rgba(201, 168, 76, 0.06); }
+#horarios tbody tr:hover { background: rgba(201, 168, 76, 0.06); } /* Fondo dorado muy sutil al pasar el cursor sobre una fila */
  
 #horarios tbody td {
-  padding: 0.9rem 1rem;
-  color: var(--color-text);
+  padding: 0.9rem 1rem; /* Espaciado interno de las celdas de datos */
+  color: var(--color-text); /* Color de texto claro para las celdas */
 }
  
 .btn-comprar {
-  background: transparent;
-  border: 1px solid var(--color-gold);
-  color: var(--color-gold);
-  padding: 0.3rem 0.9rem;
-  border-radius: var(--radius);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background var(--transition), color var(--transition);
+  background: transparent; /* Fondo transparente para el botón de compra */
+  border: 1px solid var(--color-gold); /* Borde dorado */
+  color: var(--color-gold); /* Texto dorado */
+  padding: 0.3rem 0.9rem; /* Espaciado interno compacto del botón */
+  border-radius: var(--radius); /* Bordes redondeados */
+  font-size: 0.75rem; /* Tamaño de fuente pequeño */
+  letter-spacing: 0.1em; /* Espaciado entre letras */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  cursor: pointer; /* Muestra el cursor de puntero al pasar sobre el botón */
+  transition: background var(--transition), color var(--transition); /* Transición suave para fondo y color */
 }
-.btn-comprar:hover { background: var(--color-gold); color: #0f0e0b; }
+.btn-comprar:hover { background: var(--color-gold); color: #0f0e0b; } /* En hover: rellena el botón con dorado y texto oscuro */
  
 /* ---------- SOBRE EL FESTIVAL ---------- */
 #sobre-el-festival .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
+  display: grid; /* Activa CSS Grid para el layout de dos columnas */
+  grid-template-columns: 1fr 1fr; /* Dos columnas de igual ancho */
+  gap: 3rem; /* Espacio amplio entre la imagen y el texto */
+  align-items: center; /* Centra verticalmente el contenido de ambas columnas */
 }
  
 #sobre-el-festival img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: var(--radius);
-  border: 1px solid var(--color-border);
+  width: 100%; /* La imagen ocupa todo el ancho de su columna */
+  height: 300px; /* Altura fija para la imagen */
+  object-fit: cover; /* Recorta la imagen para cubrir el área sin deformarla */
+  border-radius: var(--radius); /* Bordes redondeados en la imagen */
+  border: 1px solid var(--color-border); /* Borde dorado sutil alrededor de la imagen */
 }
  
-#sobre-el-festival p { color: var(--color-muted); margin-bottom: 1rem; }
+#sobre-el-festival p { color: var(--color-muted); margin-bottom: 1rem; } /* Color atenuado y margen inferior para los párrafos de esta sección */
  
 #sobre-el-festival ul {
-  list-style: none;
-  margin-top: 0.5rem;
+  list-style: none; /* Elimina los bullets por defecto de la lista */
+  margin-top: 0.5rem; /* Pequeño espacio superior sobre la lista */
 }
  
 #sobre-el-festival ul li {
-  padding: 0.35rem 0;
-  color: var(--color-muted);
-  font-size: 0.95rem;
+  padding: 0.35rem 0; /* Espaciado vertical entre ítems de la lista */
+  color: var(--color-muted); /* Color atenuado para los ítems */
+  font-size: 0.95rem; /* Tamaño de fuente ligeramente reducido */
 }
  
 #sobre-el-festival ul li::before {
-  content: "·  ";
-  color: var(--color-gold);
-  font-weight: bold;
+  content: "·  "; /* Inserta un punto dorado como bullet personalizado antes de cada ítem */
+  color: var(--color-gold); /* Color dorado para el bullet personalizado */
+  font-weight: bold; /* Bullet en negrita */
 }
  
 /* ---------- CHEFS - GRID ---------- */
 #chefs .chefs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
+  display: grid; /* Activa CSS Grid para las tarjetas de chefs */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Columnas automáticas que se adaptan al espacio disponible, mínimo 200px */
+  gap: 1.5rem; /* Espacio entre tarjetas de chefs */
 }
  
 #chefs article {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 1.75rem 1.25rem;
-  text-align: center;
-  transition: border-color var(--transition), transform var(--transition);
+  background: var(--color-surface); /* Fondo oscuro para cada tarjeta de chef */
+  border: 1px solid var(--color-border); /* Borde dorado sutil alrededor de la tarjeta */
+  border-radius: var(--radius); /* Bordes redondeados en la tarjeta */
+  padding: 1.75rem 1.25rem; /* Espaciado interno de la tarjeta */
+  text-align: center; /* Centra el contenido dentro de la tarjeta */
+  transition: border-color var(--transition), transform var(--transition); /* Transición suave para borde y movimiento en hover */
 }
  
 #chefs article:hover {
-  border-color: var(--color-gold);
-  transform: translateY(-4px);
+  border-color: var(--color-gold); /* Borde dorado completo al pasar el cursor */
+  transform: translateY(-4px); /* Eleva la tarjeta 4px al hacer hover */
 }
  
 #chefs article .chef-avatar {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: var(--color-gold);
-  color: #0f0e0b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  font-family: var(--font-display);
-  margin: 0 auto 1rem;
+  width: 70px; /* Ancho del avatar circular */
+  height: 70px; /* Alto del avatar circular */
+  border-radius: 50%; /* Hace el elemento completamente circular */
+  background: var(--color-gold); /* Fondo dorado para el avatar */
+  color: #0f0e0b; /* Color oscuro para la inicial del chef */
+  display: flex; /* Activa Flexbox para centrar la inicial */
+  align-items: center; /* Centra verticalmente la inicial */
+  justify-content: center; /* Centra horizontalmente la inicial */
+  font-size: 1.4rem; /* Tamaño de la inicial del chef */
+  font-family: var(--font-display); /* Fuente elegante para la inicial */
+  margin: 0 auto 1rem; /* Centra el avatar horizontalmente y añade espacio inferior */
 }
  
 #chefs article h3 {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 400;
-  color: var(--color-gold-lt);
-  margin-bottom: 0.4rem;
+  font-family: var(--font-display); /* Fuente de display para el nombre del chef */
+  font-size: 1.05rem; /* Tamaño del nombre del chef */
+  font-weight: 400; /* Peso normal para estética elegante */
+  color: var(--color-gold-lt); /* Color dorado claro para el nombre */
+  margin-bottom: 0.4rem; /* Pequeño espacio entre el nombre y la especialidad */
 }
  
-#chefs article p { font-size: 0.87rem; color: var(--color-muted); }
+#chefs article p { font-size: 0.87rem; color: var(--color-muted); } /* Texto pequeño y atenuado para la especialidad del chef */
  
 /* ---------- MULTIMEDIA - GRID ---------- */
-#multimedia { background: var(--color-surface); }
+#multimedia { background: var(--color-surface); } /* Fondo levemente diferente para destacar la sección multimedia */
  
 .media-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
-  gap: 0.75rem;
+  display: grid; /* Activa CSS Grid para la galería multimedia */
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual ancho */
+  grid-template-rows: auto auto; /* Dos filas de altura automática */
+  gap: 0.75rem; /* Espacio entre los elementos de la galería */
 }
  
 .media-grid img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: var(--radius);
-  border: 1px solid var(--color-border);
-  transition: opacity var(--transition);
+  width: 100%; /* Imagen ocupa todo el ancho de su celda */
+  height: 150px; /* Altura fija para todas las imágenes de la galería */
+  object-fit: cover; /* Recorta la imagen para cubrir el área sin deformarla */
+  border-radius: var(--radius); /* Bordes redondeados en las imágenes */
+  border: 1px solid var(--color-border); /* Borde dorado sutil alrededor de cada imagen */
+  transition: opacity var(--transition); /* Transición suave para la opacidad en hover */
 }
-.media-grid img:hover { opacity: 0.75; }
+.media-grid img:hover { opacity: 0.75; } /* Reduce la opacidad de la imagen al pasar el cursor */
  
 .video-placeholder {
-  grid-column: 3;
-  grid-row: 1 / 3;
-  background: #111;
-  border-radius: var(--radius);
-  border: 1px solid var(--color-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
+  grid-column: 3; /* Ubica el placeholder en la tercera columna */
+  grid-row: 1 / 3; /* Hace que ocupe ambas filas (1 y 2) */
+  background: #111; /* Fondo muy oscuro para el área de video */
+  border-radius: var(--radius); /* Bordes redondeados */
+  border: 1px solid var(--color-border); /* Borde dorado sutil */
+  display: flex; /* Activa Flexbox para centrar el botón de play */
+  align-items: center; /* Centra verticalmente el botón de play */
+  justify-content: center; /* Centra horizontalmente el botón de play */
+  min-height: 200px; /* Altura mínima para el placeholder de video */
 }
  
 .play-btn {
-  width: 56px; height: 56px;
-  background: var(--color-gold);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px; /* Dimensiones del botón de play circular */
+  background: var(--color-gold); /* Fondo dorado para el botón de play */
+  border-radius: 50%; /* Hace el botón completamente circular */
+  display: flex; align-items: center; justify-content: center; /* Centra el ícono de play dentro del círculo */
 }
 .play-btn::after {
-  content: '';
-  border: 10px solid transparent;
-  border-left: 18px solid #0f0e0b;
-  margin-left: 4px;
+  content: ''; /* Contenido vacío necesario para el pseudo-elemento */
+  border: 10px solid transparent; /* Bordes transparentes para crear el triángulo */
+  border-left: 18px solid #0f0e0b; /* Borde izquierdo oscuro que forma el triángulo de play */
+  margin-left: 4px; /* Ajuste visual para centrar el triángulo dentro del círculo */
 }
  
 /* ---------- CONTACTO ---------- */
-#contacto { text-align: center; }
+#contacto { text-align: center; } /* Centra todo el contenido de la sección de contacto */
  
-#contacto p { color: var(--color-muted); margin-bottom: 0.5rem; }
+#contacto p { color: var(--color-muted); margin-bottom: 0.5rem; } /* Color atenuado y espacio inferior para los párrafos de contacto */
  
-#contacto a { color: var(--color-gold); font-size: 1.1rem; }
+#contacto a { color: var(--color-gold); font-size: 1.1rem; } /* Color dorado y tamaño ligeramente mayor para los enlaces de contacto */
  
 /* ---------- FOOTER ---------- */
 footer {
-  background: var(--color-surface);
-  border-top: 1px solid var(--color-border);
-  padding: 3rem 6%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 2rem;
+  background: var(--color-surface); /* Fondo oscuro para el footer */
+  border-top: 1px solid var(--color-border); /* Línea dorada sutil en la parte superior del footer */
+  padding: 3rem 6%; /* Espaciado interno del footer */
+  display: grid; /* Activa CSS Grid para las columnas del footer */
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Columnas automáticas adaptables, mínimo 160px */
+  gap: 2rem; /* Espacio entre las columnas del footer */
 }
  
-footer p { font-size: 0.85rem; color: var(--color-muted); }
+footer p { font-size: 0.85rem; color: var(--color-muted); } /* Texto pequeño y atenuado para los párrafos del footer */
  
-footer nav { display: flex; flex-direction: column; gap: 0.5rem; }
-footer nav a { font-size: 0.85rem; color: var(--color-muted); transition: color var(--transition); }
-footer nav a:hover { color: var(--color-gold); }
+footer nav { display: flex; flex-direction: column; gap: 0.5rem; } /* Apila verticalmente los enlaces del footer con espacio entre ellos */
+footer nav a { font-size: 0.85rem; color: var(--color-muted); transition: color var(--transition); } /* Estilo base para los enlaces del footer */
+footer nav a:hover { color: var(--color-gold); } /* Cambia el color a dorado al pasar el cursor sobre los enlaces del footer */
  
 /* ---------- RESPONSIVE MOBILE ---------- */
-@media (max-width: 768px) {
-  .cabecera { flex-direction: column; padding: 0.75rem 5%; gap: 0.5rem; }
-  .menu ul  { gap: 1rem; justify-content: center; }
+@media (max-width: 768px) { /* Estilos aplicados en pantallas de 768px o menos (tablets y móviles) */
+  .cabecera { flex-direction: column; padding: 0.75rem 5%; gap: 0.5rem; } /* Apila logo y menú verticalmente en móvil */
+  .menu ul  { gap: 1rem; justify-content: center; } /* Reduce el espacio entre ítems y los centra en móvil */
  
-  #sobre-el-festival .about-grid { grid-template-columns: 1fr; }
+  #sobre-el-festival .about-grid { grid-template-columns: 1fr; } /* Convierte el grid de dos columnas en una sola columna en móvil */
  
   .media-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* Reduce la galería a dos columnas en tablet */
   }
-  .video-placeholder { grid-column: 1 / 3; grid-row: auto; min-height: 160px; }
+  .video-placeholder { grid-column: 1 / 3; grid-row: auto; min-height: 160px; } /* El placeholder de video ocupa las dos columnas y vuelve al flujo normal */
  
-  footer { grid-template-columns: 1fr; text-align: center; }
-  footer nav { align-items: center; }
+  footer { grid-template-columns: 1fr; text-align: center; } /* Una sola columna y texto centrado en el footer móvil */
+  footer nav { align-items: center; } /* Centra los enlaces de navegación del footer en móvil */
 }
  
-@media (max-width: 480px) {
-  .menu ul { gap: 0.6rem; }
-  .menu ul li a { font-size: 0.72rem; }
-  .media-grid { grid-template-columns: 1fr; }
-  .video-placeholder { grid-column: auto; }
+@media (max-width: 480px) { /* Estilos aplicados en pantallas muy pequeñas de 480px o menos (móviles pequeños) */
+  .menu ul { gap: 0.6rem; } /* Espacio mínimo entre ítems del menú en pantallas muy pequeñas */
+  .menu ul li a { font-size: 0.72rem; } /* Fuente aún más pequeña para el menú en móviles pequeños */
+  .media-grid { grid-template-columns: 1fr; } /* Una sola columna para la galería en móviles pequeños */
+  .video-placeholder { grid-column: auto; } /* El placeholder de video vuelve a su columna normal en el flujo */
 }
